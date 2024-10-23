@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -31,11 +32,14 @@ fun SplashScreen() {
             contentDescription = "Logo"
         )
         Spacer(modifier = Modifier.height(20.dp))
-        Text(text = "Bienvenido a Mi Banco")
+        Text(text = "Bienvenido a Mi Banco",
+            style = MaterialTheme.typography.titleLarge)
         Spacer(modifier = Modifier.height(20.dp))
         OutlinedButton(
-            onClick = { Log.d("SplashScreen", "Iniciar Sesión") }) {
-            Text(text = "Continuar")
+            //mensaje se ve en logcat
+            onClick = { Log.d("SplashScreen", "Iniciar Sesion") }) {
+            Text(text = "Continuar",
+                style = MaterialTheme.typography.bodyLarge)
         }
     }
 }

@@ -12,6 +12,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -40,6 +42,11 @@ fun HomeScreen() {
 
 @Composable
 fun ListItemRow(item: ItemsPrincipal) {
+
+    var masInfo = remember {
+        mutableStateOf(false)
+    }
+
     Row(
         verticalAlignment = Alignment.CenterVertically
     ){
@@ -48,8 +55,9 @@ fun ListItemRow(item: ItemsPrincipal) {
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.weight(1f)
         )
-        IconButton(onClick = {}) {
-            Icon(imageVector = Icons.Default.Add,
+        IconButton(onClick = {masInfo.value = !masInfo.value}) {
+            Icon(
+                if (masInfo.value) Icons.Default.Remove else Icons.Default.Add,
                 contentDescription = "Más información")
         }
     }

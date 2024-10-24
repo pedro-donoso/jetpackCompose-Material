@@ -2,6 +2,7 @@ package com.example.mibanco.components
 
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
@@ -21,30 +22,34 @@ fun NavegacionInferior(
     )
 
     BottomAppBar {
-        NavigationBar {
+        NavigationBar(
+            containerColor = MaterialTheme.colorScheme.inverseOnSurface
+        ) {
             menuItems.forEach { item ->
                 val selected = currentRoute(navHostController) == item.ruta
                 NavigationBarItem(
                     selected = selected,
                     onClick = {
-                        // Navigate only if the selected item is different
+
                         if (!selected) {
                             navHostController.navigate(item.ruta) {
-                                // Optionally clear the back stack or configure navigation options
+
                                 launchSingleTop = true
                                 restoreState = true
-                                // You can add more navigation options here
+
                             }
                         }
                     },
                     icon = {
                         Icon(
                             imageVector = item.icon,
-                            contentDescription = item.title // Ensure this is meaningful for accessibility
+                            contentDescription = item.title
                         )
                     },
                     label = {
-                        Text(text = item.title)
+                        Text(
+                            text = item.title
+                            )
                     }
                 )
             }

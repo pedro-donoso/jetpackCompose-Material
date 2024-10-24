@@ -19,7 +19,7 @@ fun PagarTarjetas(){
         horizontalAlignment = Alignment.CenterHorizontally
     ){
         Image(
-            painter = painterResource(id = R.drawable.credit),
+            painter = painterResource(id = R.drawable.atm_card),
             contentDescription = null)
         Text(text = "Pagar Tarjetas")
     }

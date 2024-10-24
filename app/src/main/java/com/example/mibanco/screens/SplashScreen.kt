@@ -32,14 +32,20 @@ fun SplashScreen() {
             contentDescription = "Logo"
         )
         Spacer(modifier = Modifier.height(20.dp))
-        Text(text = "Bienvenido a Mi Banco",
-            style = MaterialTheme.typography.titleLarge)
+        Text(
+            text = "Bienvenido a Mi Banco",
+            style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.primaryContainer
+        )
         Spacer(modifier = Modifier.height(20.dp))
         OutlinedButton(
             //mensaje se ve en logcat
             onClick = { Log.d("SplashScreen", "Iniciar Sesion") }) {
-            Text(text = "Continuar",
-                style = MaterialTheme.typography.bodyLarge)
+            Text(
+                text = "Continuar",
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.secondaryContainer
+            )
         }
     }
 }

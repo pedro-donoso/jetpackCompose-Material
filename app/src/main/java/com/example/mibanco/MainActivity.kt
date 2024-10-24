@@ -6,10 +6,16 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.mibanco.screens.HomeScreen
+import androidx.navigation.compose.rememberNavController
+import com.example.mibanco.components.NavegacionInferior
+import com.example.mibanco.navigation.BancoNavigation
 import com.example.mibanco.ui.theme.MiBancoTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,11 +31,32 @@ class MainActivity : ComponentActivity() {
                     Box(
                         modifier = Modifier.fillMaxSize()
                     ) {
-                        HomeScreen()
+                        MainScreen()
                     }
                 }
             }
         }
     }
+
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    fun MainScreen() {
+        val navController = rememberNavController()
+        Scaffold(
+            bottomBar = {
+                NavegacionInferior(navController)
+            }
+        ) { padding ->
+            Box(
+                modifier = Modifier
+                    .padding(padding)
+                    .fillMaxSize()
+            ) {
+                BancoNavigation(navController = navController)
+            }
+
+        }
+    }
 }
+
 

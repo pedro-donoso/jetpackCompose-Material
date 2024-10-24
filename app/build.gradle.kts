@@ -56,6 +56,8 @@ android {
 
 dependencies {
 
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -72,6 +74,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("androidx.compose.material:material-icons-extended:1.7.4")
 
     //Navegación

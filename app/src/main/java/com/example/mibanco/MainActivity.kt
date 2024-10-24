@@ -8,9 +8,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.example.mibanco.screens.HomeScreen
 import com.example.mibanco.ui.theme.MiBancoTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,11 +27,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.primaryContainer,
-                            text = "Estamos en Home"
-                        )
+                        HomeScreen()
                     }
                 }
             }

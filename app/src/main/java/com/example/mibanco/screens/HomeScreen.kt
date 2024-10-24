@@ -1,11 +1,13 @@
 package com.example.mibanco.screens
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -43,22 +45,33 @@ fun HomeScreen() {
 @Composable
 fun ListItemRow(item: ItemsPrincipal) {
 
-    var masInfo = remember {
+    val masInfo = remember {
         mutableStateOf(false)
     }
 
-    Row(
-        verticalAlignment = Alignment.CenterVertically
-    ){
-        Text(
-            text = item.title,
-            style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.weight(1f)
-        )
-        IconButton(onClick = {masInfo.value = !masInfo.value}) {
-            Icon(
-                if (masInfo.value) Icons.Default.Remove else Icons.Default.Add,
-                contentDescription = "Más información")
+    Column {
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = item.title,
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.weight(1f)
+            )
+            IconButton(onClick = { masInfo.value = !masInfo.value }) {
+                Icon(
+                    if (masInfo.value) Icons.Default.Remove else Icons.Default.Add,
+                    contentDescription = "Más información"
+                )
+            }
+        }
+    }
+    if (masInfo.value) {
+        Row {
+            Text(
+                text = item.details,
+                style = MaterialTheme.typography.bodyMedium
+            )
         }
     }
 }

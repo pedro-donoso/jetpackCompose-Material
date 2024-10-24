@@ -1,5 +1,6 @@
 package com.example.mibanco.screens
 
+import android.content.Intent
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -14,12 +15,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.mibanco.MainActivity
 import com.example.mibanco.R
 
 @Composable
 fun SplashScreen() {
+
+    val context = LocalContext.current
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -32,14 +38,25 @@ fun SplashScreen() {
             contentDescription = "Logo"
         )
         Spacer(modifier = Modifier.height(20.dp))
-        Text(text = "Bienvenido a Mi Banco",
-            style = MaterialTheme.typography.titleLarge)
+        Text(
+            text = "Bienvenido a Mi Banco",
+            style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.primaryContainer
+        )
         Spacer(modifier = Modifier.height(20.dp))
         OutlinedButton(
             //mensaje se ve en logcat
-            onClick = { Log.d("SplashScreen", "Iniciar Sesion") }) {
-            Text(text = "Continuar",
-                style = MaterialTheme.typography.bodyLarge)
+            onClick = { Log.d("SplashScreen", "Clic en continuar")
+                val intent = Intent(
+                    context, MainActivity::class.java
+                )
+                context.startActivity(intent)
+            }) {
+            Text(
+                text = "Continuar",
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.secondaryContainer
+            )
         }
     }
 }

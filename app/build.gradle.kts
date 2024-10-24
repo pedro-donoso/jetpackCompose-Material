@@ -56,11 +56,6 @@ android {
 
 dependencies {
 
-    val nav_version = "2.7.7"
-    // Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -78,4 +73,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation("androidx.compose.material:material-icons-extended:1.7.4")
+
+    //Navegación
+    implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
 }

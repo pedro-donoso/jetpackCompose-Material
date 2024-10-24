@@ -8,6 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import com.example.mibanco.models.ItemsBottomNav.*
+import com.example.mibanco.navigation.currentRoute
 
 @Composable
 fun NavegacionInferior(
@@ -18,15 +19,28 @@ fun NavegacionInferior(
         ItemBottomNav2,
         ItemBottomNav3
     )
+
     BottomAppBar {
         NavigationBar {
             menuItems.forEach { item ->
-                NavigationBarItem(selected = false,
-                    onClick = { navHostController.navigate(item.ruta) },
+                val selected = currentRoute(navHostController) == item.ruta
+                NavigationBarItem(
+                    selected = selected,
+                    onClick = {
+                        // Navigate only if the selected item is different
+                        if (!selected) {
+                            navHostController.navigate(item.ruta) {
+                                // Optionally clear the back stack or configure navigation options
+                                launchSingleTop = true
+                                restoreState = true
+                                // You can add more navigation options here
+                            }
+                        }
+                    },
                     icon = {
                         Icon(
                             imageVector = item.icon,
-                            contentDescription = item.title
+                            contentDescription = item.title // Ensure this is meaningful for accessibility
                         )
                     },
                     label = {
@@ -37,7 +51,6 @@ fun NavegacionInferior(
         }
     }
 }
-
 
 
 

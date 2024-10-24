@@ -21,13 +21,13 @@ sealed class ItemsBottomNav(
     data object ItemBottomNav2 : ItemsBottomNav(
         Icons.Outlined.PriceCheck,
         "Pagar Servicios",
-        NavScreen.Transferencias.name
+        NavScreen.PagarServicios.name
     )
 
     data object ItemBottomNav3 : ItemsBottomNav(
         Icons.Outlined.CreditCard,
         "Pagar Tarjetas",
-        NavScreen.Transferencias.name
+        NavScreen.PagarTarjetas.name
     )
 }
 

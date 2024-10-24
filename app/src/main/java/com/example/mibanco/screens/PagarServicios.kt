@@ -12,15 +12,15 @@ import androidx.compose.ui.res.painterResource
 import com.example.mibanco.R
 
 @Composable
-fun Transferencias(){
+fun PagarServicios(){
     Column (
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
         Image(
-            painter = painterResource(id = R.drawable.money_transfer),
+            painter = painterResource(id = R.drawable.money),
             contentDescription = null)
-        Text(text = "Transferencias")
+        Text(text = "Pagar Servicios")
     }
 }

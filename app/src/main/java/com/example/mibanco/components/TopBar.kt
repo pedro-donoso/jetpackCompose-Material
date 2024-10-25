@@ -19,11 +19,11 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBar(
-    drawerState: @Composable DrawerState,
-    function: @Composable () -> Unit,
+    drawerState: DrawerState,
 ) {
     val mainViewModel: MainViewModel = viewModel()
     val scope = rememberCoroutineScope()
+
     CenterAlignedTopAppBar(
         title = { Text(text = "¡Hola!") },
         navigationIcon = {
@@ -33,21 +33,18 @@ fun TopBar(
                 }
             }) {
                 Icon(
-                    Icons.Outlined.Menu,
-                    "Abrir Menú Lateral"
+                    imageVector = Icons.Outlined.Menu,
+                    contentDescription = "Abrir Menú Lateral" // Asegúrate de que el contenido sea descriptivo
                 )
             }
         },
-
         actions = {
             IconButton(onClick = {
                 mainViewModel.showDialogRecompensas = true
             }) {
                 Icon(
-                    Icons
-                        .Outlined
-                        .CardGiftcard,
-                    "Ir " + "a Recompensas"
+                    imageVector = Icons.Outlined.CardGiftcard,
+                    contentDescription = "Ir a Recompensas" // Descripción del ícono
                 )
             }
 
@@ -55,13 +52,10 @@ fun TopBar(
                 mainViewModel.showBottomSheet = true
             }) {
                 Icon(
-                    Icons
-                        .Outlined
-                        .Settings,
-                    "Ir a Configuración"
+                    imageVector = Icons.Outlined.Settings,
+                    contentDescription = "Ir a Configuración" // Descripción del ícono
                 )
             }
-
         }
     )
 }

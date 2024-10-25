@@ -4,5 +4,5 @@
 
 ![pago](https://github.com/user-attachments/assets/7175e2b1-346e-4c97-a473-e816ca01edad)
 
-![lado](https://github.com/user-attachments/assets/8f7f12ba-9960-4aea-a7f4-5a51e2d99fce)
+![lado](https://github.com/user-attachments/assets/8b6bb987-77d0-44e2-b47f-3945a543d4d4)
 

@@ -8,7 +8,9 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
-import com.example.mibanco.models.ItemsBottomNav.*
+import com.example.mibanco.models.ItemsBottomNav.ItemBottomNav1
+import com.example.mibanco.models.ItemsBottomNav.ItemBottomNav2
+import com.example.mibanco.models.ItemsBottomNav.ItemBottomNav3
 import com.example.mibanco.navigation.currentRoute
 
 @Composable
@@ -23,7 +25,7 @@ fun NavegacionInferior(
 
     BottomAppBar {
         NavigationBar(
-            containerColor = MaterialTheme.colorScheme.inverseOnSurface
+            containerColor = MaterialTheme.colorScheme.inversePrimary
         ) {
             menuItems.forEach { item ->
                 val selected = currentRoute(navHostController) == item.ruta

@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -19,6 +20,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.mibanco.components.MenuLateral
 import com.example.mibanco.components.NavegacionInferior
+import com.example.mibanco.components.TopBar
 import com.example.mibanco.navigation.BancoNavigation
 import com.example.mibanco.ui.theme.MiBancoTheme
 
@@ -51,15 +53,22 @@ class MainActivity : ComponentActivity() {
             navController = navController,
             drawerState = drawerState
         ) {
-            Contenido(navController = navController)
+            Contenido(
+                navController = navController,
+                drawerState = drawerState
+            )
         }
     }
 
     @Composable
     fun Contenido(
-        navController: NavHostController
+        navController: NavHostController,
+        drawerState: DrawerState
     ) {
         Scaffold(
+            topBar = {
+                TopBar(drawerState)
+            },
             bottomBar = {
                 NavegacionInferior(navController)
             }

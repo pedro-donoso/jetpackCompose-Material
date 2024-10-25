@@ -34,7 +34,7 @@ fun TopBar(
             }) {
                 Icon(
                     imageVector = Icons.Outlined.Menu,
-                    contentDescription = "Abrir Menú Lateral" // Asegúrate de que el contenido sea descriptivo
+                    contentDescription = "Abrir Menú Lateral"
                 )
             }
         },
@@ -44,7 +44,7 @@ fun TopBar(
             }) {
                 Icon(
                     imageVector = Icons.Outlined.CardGiftcard,
-                    contentDescription = "Ir a Recompensas" // Descripción del ícono
+                    contentDescription = "Ir a Recompensas"
                 )
             }
 
@@ -53,7 +53,7 @@ fun TopBar(
             }) {
                 Icon(
                     imageVector = Icons.Outlined.Settings,
-                    contentDescription = "Ir a Configuración" // Descripción del ícono
+                    contentDescription = "Ir a Configuración"
                 )
             }
         }

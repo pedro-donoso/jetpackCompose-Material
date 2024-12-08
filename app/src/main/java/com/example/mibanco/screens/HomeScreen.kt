@@ -6,6 +6,8 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -22,6 +24,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.mibanco.models.ItemsPrincipal
 
@@ -38,12 +41,15 @@ fun HomeScreen() {
 
     LazyColumn(
         modifier = Modifier
-            .padding(top = 40.dp),
+            .padding(top = 10.dp),
         contentPadding = PaddingValues(16.dp)
     ) {
         items(listaItemsPrincipal) { item ->
             ListItemRow(item)
-            HorizontalDivider()
+            // Solo mostrar la línea divisoria si el ítem no es el último
+            if (item != ItemsPrincipal.ItemPrincipal5) {
+                HorizontalDivider()
+            }
         }
     }
 }
@@ -57,7 +63,7 @@ fun ListItemRow(item: ItemsPrincipal) {
 
     Column (
         modifier = Modifier
-            .animateContentSize (
+            .animateContentSize(
                 animationSpec = tween(240, 0, LinearEasing)
             )
             .padding(8.dp)
@@ -79,11 +85,13 @@ fun ListItemRow(item: ItemsPrincipal) {
         }
     }
     if (masInfo.value) {
-        Row {
+        Column { // Espacio entre el detalle y el texto
             Text(
                 text = item.details,
-                style = MaterialTheme.typography.bodyMedium
+                style = MaterialTheme.typography.bodyMedium,
+                textAlign = TextAlign.Justify
             )
+            Spacer(modifier = Modifier.height(30.dp)) // Espacio adicional antes de la línea divisoria
         }
     }
 }

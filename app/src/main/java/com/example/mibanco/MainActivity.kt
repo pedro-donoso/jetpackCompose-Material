@@ -23,6 +23,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -77,7 +78,12 @@ class MainActivity : ComponentActivity() {
                         .padding(end = 16.dp)
                         .clickable { onRewardsClick() }
                 )
-            }
+            },
+            colors = TopAppBarDefaults.topAppBarColors(
+                containerColor = MaterialTheme.colorScheme.inversePrimary, // Cambia el color de fondo aquí
+                titleContentColor = MaterialTheme.colorScheme.inverseSurface, // Color del texto del título
+                actionIconContentColor = MaterialTheme.colorScheme.inverseSurface// Color de los iconos de acción
+            )
         )
     }
 
